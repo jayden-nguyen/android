@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    >
+
+<ImageView
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="150px"
+    android:background="@drawable/ic_launcher"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:id="@+id/image_logo"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:id = "@+id/slogan"
+        android:layout_below="@id/image_logo"
+        android:textSize="36dp"
+        android:maxLines="2"
+        android:gravity="center"
+        android:text = "WELCOME TO\n INFINITY"
+        android:textColor="#fff"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/slogan"
+    android:layout_marginTop="24dp"
+    android:layout_marginLeft="24dp"
+    android:layout_marginRight="24dp"
+    android:background="#fff"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:hint="User name"
+        android:id="@+id/login_username"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:id="@+id/login_password"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:layout_centerInParent="true"
+            android:id = "@+id/login_button"
+            android:background="@color/colorBlue"
+            android:textColor="#fff"
+            android:layout_marginTop="24dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_button"
+            android:text="SIGN UP"
+            android:gravity="center"
+            android:id = "@+id/login_to_signup"
+            android:layout_marginTop="48dp"
+            />
+
+    </RelativeLayout>
+</LinearLayout>
+
+</RelativeLayout>

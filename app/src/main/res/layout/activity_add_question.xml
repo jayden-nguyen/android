@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorYellow"
+        android:orientation="horizontal"
+        android:id="@+id/menu_bar"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text ="Store"
+            android:textSize="22dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:id = "@+id/store"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text ="Data"
+            android:textSize="22dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:id = "@+id/data"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text ="Profile"
+            android:textSize="22dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:id = "@+id/profile"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text ="Forum"
+            android:background="@color/colorGreen"
+            android:textSize="22dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:id="@+id/forum"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_bar"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorTest"
+        android:orientation="vertical"
+        android:id = "@+id/question_detail"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="16dp"
+            android:hint="Title"
+            android:textSize="25dp"
+            android:textColor="#000"
+            android:background="#FFF"
+            android:id = "@+id/question_title"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#fff"
+            android:layout_margin="16dp"
+            android:textColor="#000"
+            android:hint= "Your Question here ..."
+            android:textSize="20dp"
+            android:gravity="top|left"
+            android:id = "@+id/question_content"
+            />
+
+    </LinearLayout>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/question_detail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorRed"
+        android:text="create"
+        android:textColor="#fff"
+        android:id = "@+id/create_question_btn"
+        />
+
+</RelativeLayout>

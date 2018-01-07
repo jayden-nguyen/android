@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorRed"
+        android:orientation="horizontal"
+        android:id="@+id/menu_bar"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text ="Store"
+            android:textSize="22dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:id = "@+id/store"
+            android:background="@color/colorBlue"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text ="Data"
+            android:textSize="22dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:id = "@+id/data"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text ="Profile"
+            android:textSize="22dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:id = "@+id/profile"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text ="Forum"
+            android:textSize="22dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:id="@+id/forum"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_bar"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="#fff"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="Product Name"
+            android:id="@+id/create_product_name"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="Product Type"
+            android:inputType="textPassword"
+            android:id="@+id/create_product_type"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="Product Price"
+            android:id="@+id/create_product_price"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:hint="Product Image name"
+            android:inputType="textPassword"
+            android:visibility="gone"
+            android:id="@+id/create_product_image_name"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="56dp"
+            android:id = "@+id/image"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorRed"
+                android:text="image"
+                android:textColor="#fff"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:id ="@+id/choose_image_button"
+                />
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="create"
+                android:layout_below="@id/choose_image_button"
+                android:layout_centerInParent="true"
+                android:id = "@+id/create_button"
+                android:background="@color/colorBlue"
+                android:textColor="#fff"
+                android:layout_marginTop="24dp"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
+</ScrollView>
