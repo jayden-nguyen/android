@@ -62,7 +62,7 @@ public class QAActivity extends AppCompatActivity {
         profile = (TextView)findViewById(R.id.profile);
         forum = (TextView) findViewById(R.id.forum);
         store = (TextView) findViewById(R.id.store);
-        //
+        //Move to other activities
         data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,13 +95,62 @@ public class QAActivity extends AppCompatActivity {
         final String producer_ques = getIntent().getStringExtra("producer_name");
         String ques_title = getIntent().getStringExtra("ques_title");
         final String ques_content = getIntent().getStringExtra("ques_content");
-        final String ques_id = getIntent().getStringExtra("ques_id");
+
         Log.d("producer",producer_ques);
 
         show_producer_question.setText(producer_ques);
         show_ques_title.setText(ques_title);
         show_ques_content.setText(ques_content);
-        //TODO: Load answer list
+        // Load answer list
+        Load_answer_list();
+        // Create answer, upload to server
+        create_answer_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog.show();
+                final SharedPrefManager sharedPrefManager = new SharedPrefManager(QAActivity.this);
+
+
+                StringRequest stringRequest1 = new StringRequest(Request.Method.POST, create_answer_url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("create answer res",response);
+                        progressDialog.dismiss();
+                        builder.setMessage(response);
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                        Load_answer_list();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        error.printStackTrace();
+                    }
+                }){
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> params = new HashMap<>();
+                        params.put("answer_content",create_answer.getText().toString());
+                        final String ques_id = getIntent().getStringExtra("ques_id");
+                        params.put("ques_id",ques_id);
+
+                        params.put("answer_producer",sharedPrefManager.getUserName());
+                        return params;
+                    }
+                };
+                MySingleton.getInstance(QAActivity.this).addToRequestQueue(stringRequest1);
+            }
+        });
+
+    }
+    public void Load_answer_list(){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, return_answer_list_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -134,58 +183,11 @@ public class QAActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params = new HashMap<>();
+                final String ques_id = getIntent().getStringExtra("ques_id");
                 params.put("ques_id",ques_id);
                 return params;
             }
         };
         MySingleton.getInstance(QAActivity.this).addToRequestQueue(stringRequest);
-        //TODO: Create answer, upload to server
-        create_answer_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                progressDialog.show();
-                final SharedPrefManager sharedPrefManager = new SharedPrefManager(QAActivity.this);
-                answerLists.add(new AnswerList(create_answer.getText().toString(),sharedPrefManager.getUserName()));
-                AnswerAdapter answerAdapter = new AnswerAdapter(QAActivity.this,answerLists);
-                answerAdapter.notifyDataSetChanged();
-                show_answer_list.setAdapter(answerAdapter);
-
-                StringRequest stringRequest1 = new StringRequest(Request.Method.POST, create_answer_url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("create answer res",response);
-                        progressDialog.dismiss();
-                        builder.setMessage(response);
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                        AlertDialog alertDialog = builder.create();
-                        alertDialog.show();
-
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        error.printStackTrace();
-                    }
-                }){
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-                        Map<String,String> params = new HashMap<>();
-                        params.put("answer_content",create_answer.getText().toString());
-                        params.put("ques_id",ques_id);
-
-                        params.put("answer_producer",sharedPrefManager.getUserName());
-                        return params;
-                    }
-                };
-                MySingleton.getInstance(QAActivity.this).addToRequestQueue(stringRequest1);
-            }
-        });
-
     }
 }

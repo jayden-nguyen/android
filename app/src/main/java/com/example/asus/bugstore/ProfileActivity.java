@@ -45,7 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
         profile = (TextView)findViewById(R.id.profile);
         forum = (TextView) findViewById(R.id.forum);
         store = (TextView) findViewById(R.id.store);
-        //
+        //Move to other activities
         store.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

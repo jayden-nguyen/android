@@ -49,11 +49,11 @@ public class DataActivity extends AppCompatActivity {
         profile = (TextView)findViewById(R.id.profile);
         forum = (TextView) findViewById(R.id.forum);
         store = (TextView) findViewById(R.id.store);
-
+        //Dialog configuration
         progressDialog = new ProgressDialog(DataActivity.this);
         progressDialog.setTitle("please wait");
         progressDialog.setMessage("connecting");
-
+        //Move to other activities
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

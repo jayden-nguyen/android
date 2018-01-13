@@ -54,6 +54,7 @@
             android:layout_marginRight="24dp"
             android:hint="Password"
             android:id="@+id/register_password"
+            android:inputType="textPassword"
             />
         <EditText
             android:layout_width="match_parent"
@@ -63,6 +64,7 @@
             android:layout_marginRight="24dp"
             android:hint="Confirm Password"
             android:id="@+id/register_confirm_password"
+            android:inputType="textPassword"
             />
         <RelativeLayout
             android:layout_width="match_parent"

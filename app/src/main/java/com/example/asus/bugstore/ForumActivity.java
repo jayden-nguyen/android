@@ -34,14 +34,14 @@ public class ForumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
-        //
+        //Match
         forum_create_question_btn = (Button)findViewById(R.id.forum_create_ques_btn);
         forum_question_list = (ListView)findViewById(R.id.forum_question_list);
         data = (TextView)findViewById(R.id.data);
         profile = (TextView)findViewById(R.id.profile);
         forum = (TextView) findViewById(R.id.forum);
         store = (TextView) findViewById(R.id.store);
-        //
+        //Move to other Activities
         data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +70,7 @@ public class ForumActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //
+        //Get question list from server
         StringRequest stringRequest = new StringRequest(Request.Method.GET, return_question_list_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

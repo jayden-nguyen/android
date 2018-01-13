@@ -45,7 +45,7 @@ public class StoreActivity extends AppCompatActivity {
         profile = (TextView)findViewById(R.id.profile);
         forum = (TextView) findViewById(R.id.forum);
         store = (TextView) findViewById(R.id.store);
-        //Intent to other activities
+        //Move to other activities
         store_create_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
